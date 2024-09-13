@@ -1,0 +1,5 @@
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.AssemblyInfoInputs.cache
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.AssemblyInfo.cs
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.sourcelink.json

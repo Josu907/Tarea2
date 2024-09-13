@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ListaDoble")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36200b5021afa5d2f3dbd6f1f0d99b2fbc08d45b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ListaDoble")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ListaDoble")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

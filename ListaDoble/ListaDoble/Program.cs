@@ -2,20 +2,20 @@
 using System.ComponentModel.Design;
 
 // Crear el enum.
-public enum SortDirection 
+public enum SortDirection
 {
     Asc,  // Ascendente
     Desc  // Descendente
 }
 
-public interface IMiLista 
+public interface IMiLista
 {
     void InsertInOrder(int value);
     int DeleteFirst();
     int DeleteLast();
     bool DeleteValue(int value);
     int GetMiddle();
-    void MergeSorted(IMiLista listA, IMiLista listB, SortDirection direction); 
+    void MergeSorted(IMiLista listA, IMiLista listB, SortDirection direction);
 }
 
 public class ListaDoble : IMiLista
@@ -24,9 +24,9 @@ public class ListaDoble : IMiLista
     private class Nodo
     {
         public int Value;
-        public Nodo? Anterior;   
+        public Nodo? Anterior;
         public Nodo? Siguiente;
-        
+
         public Nodo(int value)
         {
             Value = value;
@@ -35,9 +35,9 @@ public class ListaDoble : IMiLista
         }
     }
 
-    private Nodo? cabeza; 
-    private Nodo? cola;   
-    private Nodo? medio;  
+    private Nodo? cabeza;
+    private Nodo? cola;
+    private Nodo? medio;
     private int tamaño;
 
     public ListaDoble()
@@ -53,7 +53,7 @@ public class ListaDoble : IMiLista
         //Cambiar todo
         Nodo nuevoNodo = new Nodo(value);
 
-        if (cabeza == null) 
+        if (cabeza == null)
         {
             cabeza = nuevoNodo;
             cola = nuevoNodo;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\source\\repos\\ListaDoble\\ListaDoble\\ListaDoble.csproj": {}
+    "C:\\Users\\ACER\\OneDrive\\Documentos\\GitHub\\Tarea2\\ListaDoble\\ListaDoble\\ListaDoble.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\source\\repos\\ListaDoble\\ListaDoble\\ListaDoble.csproj": {
+    "C:\\Users\\ACER\\OneDrive\\Documentos\\GitHub\\Tarea2\\ListaDoble\\ListaDoble\\ListaDoble.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\source\\repos\\ListaDoble\\ListaDoble\\ListaDoble.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Documentos\\GitHub\\Tarea2\\ListaDoble\\ListaDoble\\ListaDoble.csproj",
         "projectName": "ListaDoble",
-        "projectPath": "C:\\Users\\ACER\\source\\repos\\ListaDoble\\ListaDoble\\ListaDoble.csproj",
+        "projectPath": "C:\\Users\\ACER\\OneDrive\\Documentos\\GitHub\\Tarea2\\ListaDoble\\ListaDoble\\ListaDoble.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\source\\repos\\ListaDoble\\ListaDoble\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\OneDrive\\Documentos\\GitHub\\Tarea2\\ListaDoble\\ListaDoble\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
