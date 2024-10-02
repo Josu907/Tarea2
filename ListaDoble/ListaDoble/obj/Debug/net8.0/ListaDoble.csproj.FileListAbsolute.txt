@@ -3,3 +3,14 @@ C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\
 C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.AssemblyInfo.cs
 C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.csproj.CoreCompileInputs.cache
 C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.sourcelink.json
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.csproj.AssemblyReference.cache
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\bin\Debug\net8.0\ListaDoble.deps.json
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\bin\Debug\net8.0\ListaDoble.dll
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\bin\Debug\net8.0\ListaDoble.pdb
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.csproj.Up2Date
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.dll
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\refint\ListaDoble.dll
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ListaDoble.pdb
+C:\Users\ACER\OneDrive\Documentos\GitHub\Tarea2\ListaDoble\ListaDoble\obj\Debug\net8.0\ref\ListaDoble.dll

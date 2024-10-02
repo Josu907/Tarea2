@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.Design;
 
-// Crear el enum.
 public enum SortDirection
 {
-    Asc,  // Ascendente
-    Desc  // Descendente
+    Asc,
+    Desc
 }
 
 public interface IMiLista
@@ -20,7 +18,6 @@ public interface IMiLista
 
 public class ListaDoble : IMiLista
 {
-    // Definir nodos
     private class Nodo
     {
         public int Value;
@@ -50,7 +47,6 @@ public class ListaDoble : IMiLista
 
     public void InsertInOrder(int value)
     {
-        //Cambiar todo
         Nodo nuevoNodo = new Nodo(value);
 
         if (cabeza == null)
@@ -60,33 +56,26 @@ public class ListaDoble : IMiLista
         }
         else
         {
-            Nodo? actual = cabeza;
-            Nodo? anterior = null;
+            Nodo? nodoActual = cabeza;
+            Nodo? nodoAnterior = null;
 
-            while (actual != null && actual.Value < value)
+            while (nodoActual != null && nodoActual.Value < value)
             {
-                anterior = actual;
-                actual = actual.Siguiente;
+                nodoAnterior = nodoActual;
+                nodoActual = nodoActual.Siguiente;
             }
 
-            if (anterior == null) // Insertar al inicio
+            if (nodoAnterior == null)
             {
-                nuevoNodo.Siguiente = cabeza;
-                cabeza.Anterior = nuevoNodo;
-                cabeza = nuevoNodo;
+                InsertarAlInicio(nuevoNodo);
             }
-            else if (actual == null) // Insertar al final
+            else if (nodoActual == null)
             {
-                anterior.Siguiente = nuevoNodo;
-                nuevoNodo.Anterior = anterior;
-                cola = nuevoNodo;
+                InsertarAlFinal(nuevoNodo);
             }
-            else // Insertar en el medio
+            else
             {
-                anterior.Siguiente = nuevoNodo;
-                nuevoNodo.Anterior = anterior;
-                nuevoNodo.Siguiente = actual;
-                actual.Anterior = nuevoNodo;
+                InsertarEnMedio(nuevoNodo, nodoAnterior, nodoActual);
             }
         }
 
@@ -94,13 +83,31 @@ public class ListaDoble : IMiLista
         ActualizarMedio();
     }
 
+    private void InsertarAlInicio(Nodo nuevoNodo)
+    {
+        nuevoNodo.Siguiente = cabeza;
+        if (cabeza != null) cabeza.Anterior = nuevoNodo;
+        cabeza = nuevoNodo;
+    }
+
+    private void InsertarAlFinal(Nodo nuevoNodo)
+    {
+        if (cola != null) cola.Siguiente = nuevoNodo;
+        nuevoNodo.Anterior = cola;
+        cola = nuevoNodo;
+    }
+
+    private void InsertarEnMedio(Nodo nuevoNodo, Nodo nodoAnterior, Nodo nodoActual)
+    {
+        nodoAnterior.Siguiente = nuevoNodo;
+        nuevoNodo.Anterior = nodoAnterior;
+        nuevoNodo.Siguiente = nodoActual;
+        nodoActual.Anterior = nuevoNodo;
+    }
+
     public int DeleteFirst()
     {
-        if (cabeza == null)
-        {
-            Console.WriteLine("La lista está vacía.");
-            return -1;
-        }
+        if (cabeza == null) throw new InvalidOperationException("La lista está vacía.");
 
         int valorEliminado = cabeza.Value;
         cabeza = cabeza.Siguiente;
@@ -111,7 +118,7 @@ public class ListaDoble : IMiLista
         }
         else
         {
-            cola = null; // Lista vacía
+            cola = null;
         }
 
         tamaño--;
@@ -132,7 +139,7 @@ public class ListaDoble : IMiLista
         }
         else
         {
-            cabeza = null; // Lista vacía
+            cabeza = null;
         }
 
         tamaño--;
@@ -144,24 +151,24 @@ public class ListaDoble : IMiLista
     {
         if (cabeza == null) return false;
 
-        Nodo? actual = cabeza;
+        Nodo? nodoActual = cabeza;
 
-        while (actual != null && actual.Value != value)
+        while (nodoActual != null && nodoActual.Value != value)
         {
-            actual = actual.Siguiente;
+            nodoActual = nodoActual.Siguiente;
         }
 
-        if (actual == null) return false; // No se encontró el valor
+        if (nodoActual == null) return false;
 
-        if (actual.Anterior != null)
-            actual.Anterior.Siguiente = actual.Siguiente;
+        if (nodoActual.Anterior != null)
+            nodoActual.Anterior.Siguiente = nodoActual.Siguiente;
         else
-            cabeza = actual.Siguiente; // Eliminación de la cabeza
+            cabeza = nodoActual.Siguiente;
 
-        if (actual.Siguiente != null)
-            actual.Siguiente.Anterior = actual.Anterior;
+        if (nodoActual.Siguiente != null)
+            nodoActual.Siguiente.Anterior = nodoActual.Anterior;
         else
-            cola = actual.Anterior; // Eliminación de la cola
+            cola = nodoActual.Anterior;
 
         tamaño--;
         ActualizarMedio();
@@ -176,7 +183,71 @@ public class ListaDoble : IMiLista
 
     public void MergeSorted(IMiLista listA, IMiLista listB, SortDirection direction)
     {
-        // Implementación de MergeSorted (requiere recorrer ambas listas y fusionarlas en orden)
+        if (listA == null || listB == null) throw new ArgumentNullException("Una de las listas es nula.");
+
+        Nodo? actualA = ((ListaDoble)listA).cabeza;
+        Nodo? actualB = ((ListaDoble)listB).cabeza;
+        ListaDoble listaFusionada = new ListaDoble();
+
+        if (direction == SortDirection.Asc)
+            MergeAscendente(actualA, actualB, listaFusionada);
+        if (direction == SortDirection.Desc)
+            MergeDescendente(actualA, actualB, listaFusionada);
+
+        cabeza = listaFusionada.cabeza;
+        cola = listaFusionada.cola;
+    }
+
+    private void MergeAscendente(Nodo? actualA, Nodo? actualB, ListaDoble listaFusionada)
+    {
+        while (actualA != null && actualB != null)
+        {
+            if (actualA.Value < actualB.Value)
+            {
+                listaFusionada.InsertInOrder(actualA.Value);
+                actualA = actualA.Siguiente;
+            }
+            else
+            {
+                listaFusionada.InsertInOrder(actualB.Value);
+                actualB = actualB.Siguiente;
+            }
+        }
+        InsertarRestantes(actualA, actualB, listaFusionada);
+    }
+
+    private void MergeDescendente(Nodo? actualA, Nodo? actualB, ListaDoble listaFusionada)
+    {
+        while (actualA != null && actualB != null)
+        {
+            if (actualA.Value > actualB.Value)
+            {
+                listaFusionada.InsertarAlInicio(new Nodo(actualA.Value));
+                actualA = actualA.Siguiente;
+            }
+            else
+            {
+                listaFusionada.InsertarAlInicio(new Nodo(actualB.Value));
+                actualB = actualB.Siguiente;
+            }
+        }
+
+        InsertarRestantes(actualA, actualB, listaFusionada);
+    }
+
+    private void InsertarRestantes(Nodo? actualA, Nodo? actualB, ListaDoble listaFusionada)
+    {
+        while (actualA != null)
+        {
+            listaFusionada.InsertInOrder(actualA.Value);
+            actualA = actualA.Siguiente;
+        }
+
+        while (actualB != null)
+        {
+            listaFusionada.InsertInOrder(actualB.Value);
+            actualB = actualB.Siguiente;
+        }
     }
 
     private void ActualizarMedio()
@@ -185,18 +256,36 @@ public class ListaDoble : IMiLista
         {
             medio = null;
         }
-        else if (tamaño == 1)
-        {
-            medio = cabeza;
-        }
         else
         {
-            Nodo? temp = cabeza;
+            medio = cabeza;
             for (int i = 0; i < tamaño / 2; i++)
             {
-                temp = temp.Siguiente;
+                medio = medio?.Siguiente;
             }
-            medio = temp;
         }
+    }
+
+    public void Invert()
+    {
+        if (cabeza == null) throw new InvalidOperationException("La lista está vacía.");
+
+        Nodo? actual = cabeza;
+        Nodo? temporal = null;
+
+        while (actual != null)
+        {
+            temporal = actual.Anterior;
+            actual.Anterior = actual.Siguiente;
+            actual.Siguiente = temporal;
+            actual = actual.Anterior;
+        }
+
+        if (temporal != null && temporal.Anterior != null)
+        {
+            cabeza = temporal.Anterior;
+        }
+
+        ActualizarMedio();
     }
 }
